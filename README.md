@@ -14,9 +14,9 @@ The purpose of this project is to map a environment using a rover and ensure at 
 "Training mode" has been used to record some data to test out the perception pipeline.
 
 The perception pipeline steps are as below.
-1)
-2)
-3)
+1.
+2.
+3.
 
 [//]: # (Image References)
 
