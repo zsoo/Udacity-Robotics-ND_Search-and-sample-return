@@ -8,6 +8,12 @@ To achieve a minimum of 60 % fidelity to the ground truth while mapping at least
 * Udacity Rover Simulation Roversim
 * Udacity RoboND-Python-Starterkit
 
+**Notebook Analysis**
+The purpose of this project is to map a environment using a rover and ensure at least 60% fidelity to the ground truth while mapping aat least 40% of the environment. The evnvironemnt and rover is simulated in the "Udacity Rover Simulation Roversim". There are two mode in the simulation software: Training mode and Autonomous Mode. A perception pipeline has been created to analyze the picture capture from the camera on the rover and provide guide for the rover to be able to move autonomously.
+
+"Training mode" has been used to record some data to test out the perception pipeline.
+
+The perception pipeline are as below.
 
 [//]: # (Image References)
 
