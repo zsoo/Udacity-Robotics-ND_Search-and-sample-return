@@ -55,14 +55,12 @@ Rock:
 In the decision_step function, I added a conditional to check if the rover is currently picking up a sample, and if so, to stop any movement and set the mode to 'stop'.  Next I added the check if a sample is near the rover.  If there is, then send the pickup sample signal to the rover, increment the samples_found count, stop moving, and set the mode to 'stop'.  
 The last conditional I added was a check if the rover mode was 'rock_visible'.  If it was, then max out the throttle and steer toward the rock, regardless if there is not enough navigable terrain to continue much farther.  This was done because the rock samples are close to the walls, and the normal 'forward' mode tells the robot to stop and turn away from walls.
 
-#### 2. Launching in autonomous mode your rover can navigate and map autonomously.  Explain your results and how you might improve them in your writeup.  
+#### Autonomous mode
 
-**Note: running the simulator with different choices of resolution and graphics quality may produce different results, particularly on different machines!  Make a note of your simulator settings (resolution and graphics quality set on launch) and frames per second (FPS output to terminal by `drive_rover.py`) in your writeup when you submit the project so your reviewer can reproduce your results.**
+My simulator was running at ~30 FPS with 1600x1200 resolution and 'Fantastic' graphics quality.
 
-My simulator was running at ~30 FPS with 1280x768 resolution and 'Beautiful' graphics quality.
+My approach is working for the most part, and is able to map at a fidelity of 68.9% when mapping 41.7% of the map. Mt rover can also sucessfully identify and locate all the rocks that it passes by. 
 
-My approach is working for the most part, and is able to map a good percentage of the environment it covers with ~85 % fidelity. I wasn't able to test the simulator for longer than a couple minutes due to a memory leak in the simulator. My rover can also successfully see and pickup rock samples, but it does not yet return them to its original position.  I could have included that the 'easy' way, waiting for the robot to randomly enter its starting position, but I would like to implement it in a more correct way in the future.  
+However, there is a few drawback on my approach that include no intelligent algorithm for exploration of the map, it will repeat the mapping at the same spots several time based on the direction that is calculated from the perception pipeline. Besides, it will get stuck when it has crashed with a rock without turning the rover mode into stop mode. It will take a couple minutes for the rover to be able to escape from that condition.
 
-A few drawbacks of my approach include that there is no intelligent algorithm for exploration of the map, so the rover will cover the same spots several times, and miss some spots where the mean angle does not take it.  There is also nothing to prevent the rover from driving in a circle for a while when following the mean angle of navigable terrain.  The last caveat of my rover is that in the case of getting stuck, there is no 'get unstuck' routine.
-
-I would like to revisit this project in the future, and try some end to end deep learning for this rover.  I would also like to fix my current approach in the near future by making my rover a wall crawler.  This project was a lot of fun!
+I would like to add a stuck mode for the rover mode and allow it to get out from 'stuck' condition easier. I woild also like to add pick rock function in future.
