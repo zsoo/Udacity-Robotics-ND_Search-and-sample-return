@@ -15,6 +15,7 @@ The purpose of this project is to map a environment using a rover and ensure at 
 
 The perception pipeline steps are as below.
 1. Read in example images. Two images are selected here to represent navigable route, obstacle, and rock.
+![alt text](output/train_images.png "Description goes here")
 [image1]: ./output/train_images.png
 2. Use perspective transform and wrap perspective function from OpenCV to transform the image from first person view to a top down map view. (perspect_transform(img, src, dst))
 [image2]: ./output/warped_train_images.png
