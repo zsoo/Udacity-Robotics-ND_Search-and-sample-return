@@ -24,7 +24,7 @@ The perception pipeline steps are as below.
 ![iamge3](output/color_threshold_train_images.png "color threshold")
 
 4. Convert the pixel to pixel location on world map to map the data onto the map coordinates. Mean angle is calculated for the navigable route and is plot out as an arrow.
-![iamge4](output/rover_centric_train_images.png "world map update")
+![iamge4](output/rover_centric_train_images_2.png "world map update")
 
 ## [Rubric](https://review.udacity.com/#!/rubrics/916/view) Points
 ### Here I will consider the rubric points individually and describe how I addressed each point in my implementation.  
@@ -36,19 +36,7 @@ The perception pipeline steps are as below.
 
 You're reading it!
 
-### Notebook Analysis
-#### 1. Run the functions provided in the notebook on test images (first with the test data provided, next on data you have recorded). Add/modify functions to allow for color selection of obstacles and rock samples.
-I selected two images from training data I recorded, one for testing the color filter on ground, and the other for a rock sample.
-![One open area, and one picture with a rock sample][image1]
 
-Here are the above images after the perspective transform to top-down view
-![Warped images][image2]
-
-I modified the color_threshold function to include a rgb_thresh_max parameter, to set maximum values for the RGB thresholds in addition to the minimums.  Here is the output on the same training images
-![Color thresholded images][image3]
-
-And into rover-centric coordinates, with the mean angle drawn
-![Rover-centric coordinates][image4]
 
 #### 2. Populate the `process_image()` function with the appropriate analysis steps to map pixels identifying navigable terrain, obstacles and rock samples into a worldmap.  Run `process_image()` on your test data using the `moviepy` functions provided to create video output of your result. 
 
