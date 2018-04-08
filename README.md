@@ -35,14 +35,22 @@ The perception pipeline is populated in the `process_image()` function and the f
 
 
 ##### Perception
- The first change was to again add the rgb_thresh_max to the color_thresh function.  In my perception_step function, I set the Rover.vision_image red channel to rock_sample color threshhold output, green channel for walls, and blue channel for navigable terrain. I then converted all three of the threshholded outputs into rover-centric coordinates.  The navigable terrain and wall coordinates were transformed to world coordinates, and applied as follows:
- 
- Blue channel of worldmap receives += 255 for all navigable terrain and -= 255 for walls
+The perception pipeline is added into perception.py under the `perception_step(Rover)`. The main difference from the noteboook analysis is by taking Rover as a input object and use the Rover object information to perform the perception steps. 
 
- Red channel of worldmap receives += 255 for all walls and -= 255 for navigable terrain
+RGB threshold are as below to provide a higher fidelity.
+Navigable route: 
+* lower limit = (160,160,160)
+* higher limit = (255,255,255)
+* channel = blue
+Obstacle: 
+* lower limit = (0,0,0)
+* higher limit = (80,80,80)
+* channel = red
+Rock:
+* lower limit = (30,90,0)
+* higher limit = (230,230,75)
+* channel = green
  
- I found that this method gave me the highest fidelity.  As for the rover-centric rock sample coordinates, they were used to check if there is a sample in the image, and determine the angle the rover needs to turn to get to that sample.  If a sample was in sight, the rovers mode was set to 'rock_visible', a custom mode I handle in the decision_step.  Further, if no rock sample is present, the navigable terrain rover-centric coordinates are converted to polar coordinates, and set to the rovers nav_dists and nav_angles variables.
-
 ##### Decision
 In the decision_step function, I added a conditional to check if the rover is currently picking up a sample, and if so, to stop any movement and set the mode to 'stop'.  Next I added the check if a sample is near the rover.  If there is, then send the pickup sample signal to the rover, increment the samples_found count, stop moving, and set the mode to 'stop'.  
 The last conditional I added was a check if the rover mode was 'rock_visible'.  If it was, then max out the throttle and steer toward the rock, regardless if there is not enough navigable terrain to continue much farther.  This was done because the rock samples are close to the walls, and the normal 'forward' mode tells the robot to stop and turn away from walls.
