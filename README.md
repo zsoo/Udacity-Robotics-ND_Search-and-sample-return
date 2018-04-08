@@ -63,6 +63,6 @@ My approach is working for the most part, and is able to map at a fidelity of 68
 
 However, there is a few drawback on my approach that include no intelligent algorithm for exploration of the map, it will repeat the mapping at the same spots several time based on the direction that is calculated from the perception pipeline. Besides, it will get stuck when it has crashed with a rock without turning the rover mode into stop mode. It will take a couple minutes for the rover to be able to escape from that condition.
 
-![iamge3](output/autonomous_mode_result.png "autonomous mode")
+![iamge5](output/autonomous_mode_result.png "autonomous mode")
 
 I would like to add a stuck mode for the rover mode and allow it to get out from 'stuck' condition easier. I woild also like to add pick rock function in future.
