@@ -26,22 +26,11 @@ The perception pipeline steps are as below.
 4. Convert the pixel to pixel location on world map to map the data onto the map coordinates. Mean angle is calculated for the navigable route and is plot out as an arrow.
 ![iamge4](output/rover_centric_train_images_2.png "world map update")
 
-## [Rubric](https://review.udacity.com/#!/rubrics/916/view) Points
-### Here I will consider the rubric points individually and describe how I addressed each point in my implementation.  
+The perception pipeline is populated in the `process_image()` function and the function is then used to process each frame of image to produce a video of mapping navigable route, obstacle, and rock on the ground truth map data.
+![iamge4](output/video-output.png "world map update")
 
 ---
-### Writeup / README
 
-#### 1. Provide a Writeup / README that includes all the rubric points and how you addressed each one.  You can submit your writeup as markdown or pdf.  
-
-You're reading it!
-
-
-
-#### 2. Populate the `process_image()` function with the appropriate analysis steps to map pixels identifying navigable terrain, obstacles and rock samples into a worldmap.  Run `process_image()` on your test data using the `moviepy` functions provided to create video output of your result. 
-
-
-![test_mapping.mp4 in ./output folder][image5]
 ### Autonomous Navigation and Mapping
 
 
