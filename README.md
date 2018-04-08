@@ -23,12 +23,6 @@ The perception pipeline steps are as below.
 4. Convert the pixel to pixel location on world map to map the data onto the map coordinates. Mean angle is calculated for the navigable route and is plot out as an arrow.
 [image4]: ./output/rover_centric_train_images.png
 
-[image1]: ./output/train_images.png
-[image2]: ./output/warped_train_images.png
-[image3]: ./output/color_threshold_train_images.png
-[image4]: ./output/rover_centric_train_images.png
-[image5]: ./output/test_mapping.mp4
-
 ## [Rubric](https://review.udacity.com/#!/rubrics/916/view) Points
 ### Here I will consider the rubric points individually and describe how I addressed each point in my implementation.  
 
