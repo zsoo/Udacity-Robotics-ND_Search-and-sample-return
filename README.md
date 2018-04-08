@@ -14,11 +14,14 @@ The purpose of this project is to map a environment using a rover and ensure at 
 "Training mode" has been used to record some data to test out the perception pipeline.
 
 The perception pipeline steps are as below.
-1. Read in example images (grid and rock pictures)
-2. xxx
-3. xxx
-
-[//]: # (Image References)
+1. Read in example images. Two images are selected here to represent navigable route, obstacle, and rock.
+[image1]: ./output/train_images.png
+2. Use perspective transform and wrap perspective function from OpenCV to transform the image from first person view to a top down map view. (perspect_transform(img, src, dst))
+[image2]: ./output/warped_train_images.png
+3. Use color threshold function to differentiate navigable route (light brown), obstacle (dark brown), and rock(yellow). RGB has been selected to filter out the objects by using lower limit and upper limit. (color_thresh(img, rgb_thresh=(160, 160, 160), rgb_thresh_max=(255,255,255)))
+[image3]: ./output/color_threshold_train_images.png]
+4. Convert the pixel to pixel location on world map to map the data onto the map coordinates. Mean angle is calculated for the navigable route and is plot out as an arrow.
+[image4]: ./output/rover_centric_train_images.png
 
 [image1]: ./output/train_images.png
 [image2]: ./output/warped_train_images.png
